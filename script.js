@@ -1,24 +1,50 @@
- // Function to simulate typing effect
- function typeText(element, text, speed) {
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        element.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      }
-    }
-    type();
-  }
+var audio = new Audio(); // Buat objek Audio
 
-  // Get the output div element
-  const outputElement = document.getElementById('output');
+function toggleLamp() {
+    var button = document.querySelector('.lampu');
+    var musicButton = document.querySelector('.musik');
+    var eventButton = document.querySelector('.acara');
+    var body = document.body;
 
-  // Text to be typed
-  const textToType = 'tekan hati di bawah ini!';
+    // Ganti kelas pada body
+    body.classList.toggle("lampu-on");
 
-  // Typing speed in milliseconds
-  const typingSpeed = 100;
+    // Ubah opasitas tombol secara animasi
+    button.style.opacity = 0;
 
-  // Start the typing effect
-  typeText(outputElement, textToType, typingSpeed);
+    // Setelah 1 detik, sembunyikan tombol
+    setTimeout(function () {
+        button.style.display = 'none';
+
+        // Periksa apakah body memiliki kelas "lampu-on"
+        if (body.classList.contains("lampu-on")) {
+            // Sembunyikan tombol "Ke acara inti"
+            eventButton.style.display = 'none';
+
+            // Tampilkan tombol "Mainkan musik"
+            musicButton.style.display = 'inline-block';
+        } else {
+            // Sembunyikan tombol "Mainkan musik" dan "Ke acara inti"
+            musicButton.style.display = 'none';
+            eventButton.style.display = 'none';
+        }
+    }, 1000);
+}
+
+function playMusic() {
+    var musicButton = document.querySelector('.musik');
+    var eventButton = document.querySelector('.acara');
+
+    // Ambil elemen audio
+    audio.src = 'audio/Y2meta.app - Virgoun - Surat Cinta Untuk Starla (tiktok version) (128 kbps).mp3';
+
+    // Mainkan musik
+    audio.play();
+
+    // Sembunyikan tombol "Mainkan musik"
+    musicButton.style.display = 'none';
+
+    // Tampilkan tombol "Ke acara inti"
+    eventButton.style.display = 'inline-block';
+}
+
