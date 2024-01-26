@@ -1,0 +1,50 @@
+body {
+  background: linear-gradient(to right, #fbd3e9, #bb337d);
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  font-size: 100px;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+p {
+  display: block;
+  text-align: center;
+  font-size: 130px;
+ margin: 0;
+ margin-top: -50;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+#output {
+  font-family: Circular, a geometric sans-serif;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+#love {
+  color: #fa0b47;
+  font-size: 200px;
+  text-align: center;
+  display: block;
+  animation: moveUpDown 2s infinite alternate;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0); /* Initial position */
+  }
+  100% {
+    transform: translateY(-20px); /* Move upwards by 20 pixels */
+  }
+}
